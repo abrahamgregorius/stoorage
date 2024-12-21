@@ -27,9 +27,17 @@
                 <li class=" hover:text-zinc-400 transition duration-300">
                     <a href="/categories">Categories</a>
                 </li> --}}
+
+                @if(!auth()->user())
                 <a href="/login">
                     <button class="px-6 py-1 rounded border-2 text-yellow-400 border-yellow-400 hover:border-zinc-200 hover:text-zinc-800 hover:bg-zinc-200 transition duration-300">Login</button>
                 </a>
+                @else
+                <form method="GET" action="/logout">
+                    @csrf
+                    <button class="px-6 py-1 rounded border-2 text-yellow-400 border-yellow-400 hover:border-zinc-200 hover:text-zinc-800 hover:bg-zinc-200 transition duration-300">Logout</button>
+                </form>
+                @endif
             </ul>
         </div>
     </nav>
